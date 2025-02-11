@@ -2,7 +2,7 @@
 
  Log
 ===================
-Trata-se do meu portfólio, onde apresento alguns dos meus projetos e certificados
+Este é um projeto de portfólio onde apresento alguns dos meus trabalhos e certificados. Ele também inclui uma opção de leitura em áudio, tornando o conteúdo mais acessível para pessoas com deficiência visual ou dificuldades de leitura
 
 ### Tech used:
 - HTML5
