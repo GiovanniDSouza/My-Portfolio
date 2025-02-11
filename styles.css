@@ -1,0 +1,673 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(66, 64, 64);
+}
+/* Estilo do fundo borrado */
+.fundo-borrado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Aplica o desfoque no fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible; /* Inicialmente visível */
+  opacity: 1; /* Inicialmente visível */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transição suave */
+}
+
+/* Estilo da mini tela */
+.mini-tela {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+  z-index: 100; /* Garante que a mini tela esteja acima do fundo */
+}
+
+/* Estilo dos "botões" (agora usando divs) */
+.mini-botao {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  user-select: none;
+  display: inline-block;
+  width: 100px; /* Define largura do "botão" */
+}
+
+.mini-botao:hover {
+  background-color: #45a049;
+}
+
+/* Estilo do "botão" Não */
+#nao {
+  background-color: #f44336;
+}
+
+#nao:hover {
+  background-color: #d32f2f;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+}
+
+.navbar .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+/* From Uiverse.io by Cevorob */ 
+.burger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .burger input {
+    display: none;
+  }
+  
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+  }
+  
+/* From Uiverse.io by wilsondesouza */ 
+ul {
+    list-style: none;
+  }
+  
+  .example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+  }
+  .example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  .example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+  }
+  .example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  }
+  .example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+  }
+  .example-2 .icon-content a:hover {
+    color: white;
+  }
+  .example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+  .example-2 .icon-content a:hover .filled {
+    height: 100%;
+  }
+  
+  .example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="whatsapp"] .filled,
+.example-2 .icon-content a[data-social="whatsapp"] ~ .tooltip {
+  background-color: #25d366; /* Cor do WhatsApp */
+}
+
+.example-2 .icon-content a[data-social="email"] .filled,
+.example-2 .icon-content a[data-social="email"] ~ .tooltip {
+  background-color: #d44638; /* Cor de fundo para o ícone de e-mail */
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+
+  .example-2 .icon-content a[data-social="youtube"] .filled,
+  .example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+    background-color: #ff0000;
+  }
+  
+
+/* Container centralizado */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Estilo para o perfil */
+.profile {
+  
+  padding: 15px;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Imagem do perfil */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+/* Estilo para a bio */
+.bio p {
+  font-size: 16px;
+  color: #d3d2d2;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.centralizar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  visibility: hidden;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow-x: auto; /* Permite o scroll se necessário */
+  padding: 10px 0;
+  flex-wrap: nowrap; /* Garante que os eventos fiquem em linha única */
+}
+
+.event {
+  text-align: center;
+  width: 200px; /* Controla a largura de cada evento */
+  margin: 0 20px;
+  position: relative;
+}
+
+.event-date {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.event-content {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-content h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.event-content p {
+  font-size: 14px;
+  color: #555;
+}
+.event-content a {
+  font-size: 12px;
+  color: blue;
+  text-align: center;
+  
+}
+/* Estilo para linha de conectores, se quiser um visual de linha conectando os eventos */
+.event:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 150px;
+  height: 2px;
+  background-color: #4CAF50;
+  transform: translateY(-50%);
+}
+
+.event:last-child:before {
+  display: none;
+}
+
+/*Carrossel de certificado*/
+
+.carrossel-container {
+  position: relative;
+  width: 80%;
+  max-width: 600px; /* Você pode ajustar o tamanho máximo */
+  margin: auto;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.carrossel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.certificado {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.certificado img {
+  width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
+  max-height: 280px; /* Limita a altura das imagens */
+  object-fit: contain; /* Garante que a imagem não distorça */
+  border-radius: 10px;
+  margin-top: 30px;
+  
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.833);
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+button.prev {
+  left: 40px;
+}
+
+button.next {
+  right: 40px;
+}
+
+button:hover {
+  color: whitesmoke;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.526); /* Sombra mais intensa no hover */
+  transform: translateY(-50%) scale(1.1); /* Botão cresce um pouco quando hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  transform: translateY(-50%) scale(0.95); /* Efeito de "pressionar" no clique */
+}
+
+/* Container que irá segurar os cards */
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Espaço entre os cards */
+  flex-wrap: wrap; /* Permite que os cartões se movam para a linha seguinte em telas menores */
+  gap: 20px; /* Espaçamento entre os cartões */
+  padding: 50px;
+}
+
+/* Estilo do cartão */
+.card {
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Cabeçalho do cartão */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Corpo do cartão */
+.body {
+  padding: 20px;
+}
+
+/* Estilo de cada habilidade */
+.skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Nome da habilidade */
+.skill-name {
+  width: 120px;
+  font-size: 16px;
+}
+
+/* Barra de progresso */
+.skill-level {
+  width: 160px;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+/* Progresso da habilidade */
+
+.skill .skill-percent {
+  animation: preencherBarra 2s ease-out forwards; /* Aplica a animação */
+}
+
+.skill-percent {
+  background-color: #007bff;  /* Cor azul */
+  height: 100%;
+  width: 0%;  /* Começa com 0%, vai animar até 70% */
+  border-radius: 10px;
+  transition: width 2s ease-out;  /* Animação de 2 segundos */
+}
+
+/* Percentual da habilidade */
+.skill-percent-number {
+  margin-left: 20px;
+  font-size: 16px;
+}
+/* Animação para mostrar a barra de habilidades após o carregamento */
+@keyframes preencherBarra {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 70%;  /* O valor da habilidade */
+  }
+}
+.botaoLeitura{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;  /* Espaço entre os botões */
+  position: absolute;
+  right: 15px;
+  top: 84px;
+}
+.botao{
+visibility: hidden;
+}
+.botao {
+  background-color: #4CAF50; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Mostrar o cursor de ponteiro para indicar interação */
+  user-select: none; /* Impede seleção de texto */
+  width: 150px; /* Largura fixa */
+  text-transform: uppercase; /* Transformar texto em maiúsculas */
+  font-size: 11px; /* Aumentando o tamanho do texto para 20px */
+}
+
+.botao:hover {
+  background-color: #45a049; /* Cor de fundo quando o mouse passa em cima */
+}
+
+
+
+i{
+  text-align: center;
+  visibility: hidden;
+}
+/* Responsividade: em telas menores os cartões ficam empilhados */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Alinha os cartões verticalmente em telas pequenas */
+    align-items: center; /* Alinha os cartões ao centro */
+  }
+
+  .card {
+    width: 100%; /* Faz o card ocupar toda a largura disponível */
+  }
+}
+
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .event {
+    width: 45%; /* Para telas menores, o evento ocupa 45% da largura */
+    margin-left: 0;
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .event {
+    width: 100%; /* Em telas muito pequenas, o evento ocupa 100% */
+    margin-left: 0;
+    display: flex;
+  }
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 49px;
+        left: 0;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .profile {
+     
+      max-width: 285px;
+      width: 100%;
+    }
+
+    button.prev {
+      left: -5px;
+    }
+    
+    button.next {
+      right: -5px;
+    }
+    button:hover {
+      color: rgb(9, 9, 9);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+      transform: translateY(-50%) scale(1.1); /* Botão cresce um pouco quando hover */
+    }
+    .botaoLeitura{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;  /* Espaço entre os botões */
+      position: absolute;
+      right: 15px;
+      top: 134px;
+    }
+    
+    .botao {
+      background-color: #4CAF50; /* Cor de fundo */
+      color: white; /* Cor do texto */
+      padding: 10px 20px; /* Espaçamento interno */
+      text-align: center; /* Alinhamento do texto */
+      border-radius: 9px; /* Bordas arredondadas */
+      cursor: pointer; /* Mostrar o cursor de ponteiro para indicar interação */
+      user-select: none; /* Impede seleção de texto */
+      width: 95px; /* Largura fixa */
+      text-transform: uppercase; /* Transformar texto em maiúsculas */
+      font-size: 10px; /* Aumentando o tamanho do texto para 20px */
+    }
+}
+
+
+
+
