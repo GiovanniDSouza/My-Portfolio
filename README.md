@@ -1,5 +1,6 @@
 # Portfolio
 https://67c7559f36fb06913b5c121c--jade-bonbon-f99c76.netlify.app/
+
  Log
 ===================
 Este é um projeto de portfólio onde apresento alguns dos meus trabalhos e certificados. Ele também inclui uma opção de leitura em áudio, tornando o conteúdo mais acessível para pessoas com deficiência visual ou dificuldades de leitura
